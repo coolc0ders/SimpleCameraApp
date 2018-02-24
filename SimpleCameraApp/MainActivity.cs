@@ -13,6 +13,10 @@ namespace SimpleCameraApp
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+
+            FragmentManager.BeginTransaction()
+               .Replace(Resource.Id.content_frame, new CameraFragment())
+               .Commit();
         }
     }
 }

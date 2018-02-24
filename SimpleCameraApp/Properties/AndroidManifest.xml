@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
-          package="SimpleCameraApp.SimpleCameraApp" 
-          android:versionCode="1" 
-          android:versionName="1.0">
-  <uses-sdk android:minSdkVersion="21" />
-  <application android:allowBackup="true" android:label="@string/app_name">
-  </application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="SimpleCameraApp.SimpleCameraApp" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="19" />
+  <uses-feature android:name="android.hardware.camera" />
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.CAMERA" />
+	<application android:allowBackup="true" android:label="@string/app_name"></application>
 </manifest>
