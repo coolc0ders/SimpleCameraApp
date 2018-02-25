@@ -21,6 +21,8 @@ namespace SimpleCameraApp
         CameraPreview _camPreview;
         FrameLayout _frameLayout;
 
+        bool _cameraReleased = false;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -60,6 +62,24 @@ namespace SimpleCameraApp
             }
         }
 
+        public override void OnDestroy()
+        {
+            _camera.StopPreview();
+            _camera.Release();
+            _cameraReleased = true;
+            base.OnDestroy();
+        }
+
+        public override void OnResume()
+        {
+            if (_cameraReleased)
+            {
+                _camera.Reconnect();
+                _camera.StartPreview();
+                _cameraReleased = false;
+            }
+            base.OnResume();
+        }
 
         /// <summary>
         /// Set the Camera Preview, and pass it the current device's Camera
